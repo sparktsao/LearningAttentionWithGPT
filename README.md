@@ -1,4 +1,4 @@
-# Attention Is All I Need
+# Learning Transformer by Coding with ChatGPT
 
 Authored by **Spark Tsao**
 
@@ -12,37 +12,37 @@ Reading a paper is one thing; truly understanding the details is another. To bri
 
 - Explores the differences between the three types of attention: **Self-Attention**, **Encoder-Decoder Attention**, and **Decoder Causal Attention**.
 - Clarifies how each type of attention operates and their roles in the transformer architecture.
-- [Read more](Attention.md)
+- [Read more](CH1_Attention.md)
 
 ### 2. **Q is F, Not G**
 
 - Highlights why the Query () is not the token we are predicting but the most recent token available.
 - This distinction is crucial for understanding how attention mechanisms compute alignment scores.
-- [Read more](QisFNotG.md)
+- [Read more](CH2_QisFNotG.md)
 
 ### 3. **Does F Dominate G?**
 
 - Investigates whether the last token () in a sequence dominates the generation of the next token ().
 - Analyzes how attention balances the influence of preceding tokens.
-- [Read more](DoesFDominateG.md)
+- [Read more](CH3_DoesFDominateG.md)
 
 ### 4. **Layer Normalization Over Batch Normalization**
 
 - Discusses why **Layer Normalization** is chosen in transformers.
 - Explains its compatibility with sequence data, focus on embeddings, and ability to handle multi-head attention results seamlessly.
-- [Read more](LayerNormDiscussion.md)
+- [Read more](CH4_LayerNormDiscussion.md)
 
 ### 5. **Add vs. Concat**
 
 - Compares the Add operation with Concatenation in transformers.
 - Explains why Add is preferred for maintaining dimensional consistency and computational efficiency.
-- [Read more](AddandConcat.md)
+- [Read more](CH5_AddandConcat.md)
 
 
 ### 6. *** Log Story ***
 
 - explain the logs.txt
-- [Read more](log_story.md)
+- [Read more](CH6_log_story.md)
 
 ---
 
