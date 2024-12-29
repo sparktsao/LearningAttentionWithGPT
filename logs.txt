@@ -1,9 +1,4 @@
-# attention_is_all_i_need
-
-python -m venv .venv
-pip install torch torchvision torchaudio --pre --index-url https://download.pytorch.org/whl/nightly/cpu
-
-(.venv) sparkt@US-SPARKT-M3 attention_is_all_i_need % python main.py 
+python main.py 
 [Transformer] src.shape: torch.Size([16, 7]), trg.shape: torch.Size([16, 7])
 [make_src_mask] mask.shape: torch.Size([16, 1, 1, 7])
 [make_trg_mask] mask.shape: torch.Size([16, 1, 7, 7])
@@ -77,4 +72,4 @@ pip install torch torchvision torchaudio --pre --index-url https://download.pyto
 [TransformerDecoderBlock] out.shape: torch.Size([16, 7, 40])
 [TransformerDecoder] Output x.shape: torch.Size([16, 7, 128])
 [Main] Final output shape: torch.Size([16, 7, 128])
-(.venv) sparkt@US-SPARKT-M3 attention_is_all_i_need % 
+
