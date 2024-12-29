@@ -1,48 +1,63 @@
 # Attention Is All I Need
 
-The "Attention Is All I Need" repository offers a deep dive into the transformer architecture, providing detailed logs to enhance understanding of its processes and logic. This implementation is designed to educate and demystify the intricacies of transformers, offering insights into data flow, attention mechanisms, and dimensional transformations.
+Authored by **Spark Tsao**
 
----
+
+
+Reading a paper is one thing; truly understanding the details is another. To bridge this gap, I implemented the transformer architecture and clarified key concepts. This journey has helped me deepen my understanding and address common misconceptions.
 
 ## Learning Highlights
 
-### 1. **Key-Query-Value (KQV) Dynamics**
-- When predicting the next token `C` in a sequence like `AB`, the Key (K) corresponds to `B`, as `C` remains unknown during prediction. This distinction is crucial to grasping the transformer attention mechanism and correcting common misconceptions, such as assuming K represents `C`.
+### 1. **Understanding Attention Mechanisms**
 
-### 2. **Layer Normalization**
-- The transformer employs **Layer Normalization**, referencing the 2015 paper ["Layer Normalization"](https://arxiv.org/abs/1607.06450).
-- Layer Normalization is chosen over Batch Normalization due to its superior compatibility with sequence data processing.
+- Explores the differences between the three types of attention: **Self-Attention**, **Encoder-Decoder Attention**, and **Decoder Causal Attention**.
+- Clarifies how each type of attention operates and their roles in the transformer architecture.
+- [Read more](Attention.md)
 
-### 3. **Decoder Block and Encoder-Decoder Attention**
-- Encoder-Decoder Attention occurs as the second step in the decoder block, enabling integration of encoder outputs with decoder self-attention data.
-- This attention mechanism is repeated across all `Nx` decoder layers, contrary to the misconception that encoder outputs are used only once.
+### 2. **Q is F, Not G**
 
-### 4. **Detailed Logging for Transformer Data Flow**
-- Comprehensive logs capture every critical operation, detailing input/output shapes for:
-  - Embeddings
-  - Positional Encoding
-  - Attention Layers
-  - Feedforward Networks
+- Highlights why the Query () is not the token we are predicting but the most recent token available.
+- This distinction is crucial for understanding how attention mechanisms compute alignment scores.
+- [Read more](QisFNotG.md)
 
-- These logs are invaluable for debugging and enhancing comprehension, ensuring clarity in dimensional transformations.
+### 3. **Does F Dominate G?**
+
+- Investigates whether the last token () in a sequence dominates the generation of the next token ().
+- Analyzes how attention balances the influence of preceding tokens.
+- [Read more](DoesFDominateG.md)
+
+### 4. **Layer Normalization Over Batch Normalization**
+
+- Discusses why **Layer Normalization** is chosen in transformers.
+- Explains its compatibility with sequence data, focus on embeddings, and ability to handle multi-head attention results seamlessly.
+- [Read more](LayerNormDiscussion.md)
+
+### 5. **Add vs. Concat**
+
+- Compares the Add operation with Concatenation in transformers.
+- Explains why Add is preferred for maintaining dimensional consistency and computational efficiency.
+- [Read more](AddandConcat.md)
 
 ---
 
 ## Installation
 
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/sparktsao/attention_is_all_i_need.git
    cd attention_is_all_i_need
    ```
 
 2. Create a virtual environment:
+
    ```bash
    python -m venv .venv
    source .venv/bin/activate
    ```
 
 3. Install dependencies:
+
    ```bash
    pip install torch torchvision torchaudio --pre --index-url https://download.pytorch.org/whl/nightly/cpu
    ```
@@ -58,6 +73,7 @@ python main.py
 ```
 
 Example Output:
+
 ```
 [Transformer] src.shape: torch.Size([16, 7]), trg.shape: torch.Size([16, 7])
 [make_src_mask] mask.shape: torch.Size([16, 1, 1, 7])
@@ -70,22 +86,27 @@ Example Output:
 ## Key Features
 
 ### 1. **Positional Encoding**
+
 - Adds positional context to input embeddings.
 - Logs input/output shapes for verification.
 
 ### 2. **Multi-Head Attention**
+
 - Executes scaled dot-product attention across multiple heads.
 - Logs each step, including linear projections and attention weight calculations.
 
 ### 3. **Feedforward Network**
+
 - Employs fully connected layers with ReLU activation.
 - Logs input/output shapes for clarity.
 
 ### 4. **Layer Normalization**
+
 - Normalizes inputs at each sub-layer.
 - Improves stability and convergence.
 
 ### 5. **Comprehensive Logging**
+
 - Tracks each step of the transformer pipeline, detailing intermediate shapes and processes.
 
 ---
@@ -126,18 +147,13 @@ Sample logs from a forward pass:
 
 ---
 
-## Future Work
-- Expand support for various input/output modalities (e.g., images, audio).
-- Optimize implementation for GPU/TPU environments.
-- Add visualizations for attention weights.
-
----
-
 ## License
+
 This project is licensed under the MIT License. See the `LICENSE` file for details.
 
 ---
 
 ## Acknowledgments
+
 Special thanks to the PyTorch community and the authors of the original transformer paper for their foundational contributions.
 
