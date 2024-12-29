@@ -38,6 +38,12 @@ Reading a paper is one thing; truly understanding the details is another. To bri
 - Explains why Add is preferred for maintaining dimensional consistency and computational efficiency.
 - [Read more](AddandConcat.md)
 
+
+### 6. *** Log Story ***
+
+- explain the logs.txt
+- [Read more](log_story.md)
+
 ---
 
 ## Installation
