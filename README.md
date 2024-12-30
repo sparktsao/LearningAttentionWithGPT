@@ -49,6 +49,10 @@ Reading a paper is one thing; truly understanding the details is another. To bri
 
 - [Read more](CH7_Prediction.md)
 
+### 8. *** Softmax usage ****
+
+- [Read more](CH8_SoftMax.md)
+
 ---
 
 ## Installation
