@@ -1,6 +1,6 @@
 # Understanding Self-Attention and Encoder-Decoder Attention in Transformers
 
-Attention mechanisms are at the core of transformer architectures, enabling models to capture relationships within and across sequences. Two critical attention types are **Self-Attention** and **Encoder-Decoder Attention**, each serving a distinct purpose in the data flow of transformers. This blog explores their differences and clarifies the unique role of uni-directionality in Encoder-Decoder Attention.
+Attention mechanisms are at the core of transformer architectures, enabling models to capture relationships within and across sequences. Two critical attention types are **Self-Attention** and **Encoder-Decoder Attention**, each serving a distinct purpose in the data flow of transformers. This blog explores their differences and clarifies the unique role of uni-directionality in Encoder-Decoder Attention, with an in-depth explanation of attention during sequence generation.
 
 ---
 
@@ -84,6 +84,25 @@ Yes, **Encoder-Decoder Attention is uni-directional**, but this uni-directionali
 
 ---
 
+## Generating a Sequence: How Decoder Attention Operates
+
+When generating a sequence like `DEF`, let’s examine the scenario where the decoder has already generated `DE` and is now predicting the next token, `F`:
+
+### Attention Details:
+
+1. **Query (Q):**
+   - Derived from the most recent token, `E`.
+
+2. **Key (K) and Value (V):**
+   - Derived from all previous tokens in the sequence up to and including `E`. In this case, `(D, E)`.
+
+### Causal Attention and Uni-Directionality:
+
+- The attention mechanism is **causal**, meaning the decoder token `E` can only attend to itself and the preceding tokens `(D)`. It cannot attend to the future token `F`, ensuring predictions are made based on past context alone.
+- This restriction enforces a **uni-directional** attention flow within the decoder, critical for autoregressive sequence generation.
+
+---
+
 ## Visualizing the Attention Mechanisms
 
 ### Self-Attention:
@@ -111,18 +130,14 @@ Token B does not attend to: C
 
 ### Generating the Next Token:
 
-When generating the next token after `A` in sequence `AB`:
-- **Query (Q):** Derived from the representation of the last known token, in this case `A`.
-- **Key (K) and Value (V):** Derived from all prior tokens, which is also `A` in this example.
-
 For example:
 ```
-Sequence: A
-Query (Q): A
-Key (K): A
-Value (V): A
+Sequence: DE
+Query (Q): E
+Key (K): D, E
+Value (V): D, E
 ```
-The model uses this information to compute attention weights and predict the next token from the vocabulary.
+The model computes attention weights to predict the next token `F` based on this limited, uni-directional context.
 
 ---
 
