@@ -12,9 +12,11 @@ class PositionalEncoding(nn.Module):
         pe[:, 0::2] = torch.sin(position * div_term)
         pe[:, 1::2] = torch.cos(position * div_term)
         self.register_buffer('pe', pe.unsqueeze(0))
+        print("position encoder pe shape", pe.shape)
 
     def forward(self, x):
-        print(f"[PositionalEncoding] Input x.shape: {x.shape}, Adding positional encodings for sequence length and embedding size.")
+        print(f"[PositionalEncoding] Input x.shape: {x.shape}, Adding positional encodings for sequence length and embedding size. peshape", self.pe.shape)
+        print(f"while adding, pe[:, :x.size(1)]:", self.pe[:, :x.size(1)].shape)
         result = x + self.pe[:, :x.size(1)]
         print(f"[PositionalEncoding] Output shape: {result.shape}")
         return result
@@ -109,6 +111,7 @@ class TransformerEncoder(nn.Module):
         print(f"[TransformerEncoder] After word embedding x.shape: {x.shape}")
         x = self.position_encoding(x)
         for i, layer in enumerate(self.layers):
+            print()
             print(f"[TransformerEncoder] Processing layer {i+1}")
             x = layer(x, x, x, mask)
         print(f"[TransformerEncoder] Output x.shape: {x.shape}")
@@ -189,16 +192,16 @@ class Transformer(nn.Module):
         return out
 
 # Example usage
-embed_size = 40
-num_layers = 2
-heads = 4
+embed_size = 384
+num_layers = 12
+heads = 32
 ff_hidden_dim = 64
 dropout = 0.1
-src_vocab_size = 128
-trg_vocab_size = 128
+src_vocab_size = 256
+trg_vocab_size = 256
 max_len = 100
 batch_size = 16
-seq_n = 7
+seq_n = 11
 
 model = Transformer(embed_size, num_layers, heads, ff_hidden_dim, dropout, src_vocab_size, trg_vocab_size, max_len)
 src = torch.randint(0, src_vocab_size, (batch_size, seq_n))  

@@ -44,6 +44,11 @@ Reading a paper is one thing; truly understanding the details is another. To bri
 - explain the logs.txt
 - [Read more](CH6_log_story.md)
 
+
+### 7. *** Predict AutoRegressively ***
+
+- [Read more](CH7_Prediction.md)
+
 ---
 
 ## Installation
@@ -51,8 +56,8 @@ Reading a paper is one thing; truly understanding the details is another. To bri
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/sparktsao/attention_is_all_i_need.git
-   cd attention_is_all_i_need
+   git clone https://github.com/sparktsao/LearningAttentionWithGPT.git
+   cd LearningAttentionWithGPT
    ```
 
 2. Create a virtual environment:
@@ -75,7 +80,7 @@ Reading a paper is one thing; truly understanding the details is another. To bri
 Run the transformer and observe detailed logs:
 
 ```bash
-python main.py
+python transformer.py
 ```
 
 Example Output:
