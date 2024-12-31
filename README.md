@@ -1,10 +1,12 @@
-# Learning Transformer by Coding with ChatGPT
+# Interview With Transformer
 
 Authored by **Spark Tsao**
 
+<img src="transformer.png" alt="Alt text" width="300">
 
+Through implementing a transformer and persistently asking detailed questions, this repository aims to help both myself and readers deeply understand the magic behind the core of modern AI. The title, "Interview with Transformer," draws inspiration from the movie "Interview with the Vampire" while adding a playful twist to highlight its utility in preparing for interviews—whether as a candidate or a senior interviewer.
 
-Reading a paper is one thing; truly understanding the details is another. To bridge this gap, I implemented the transformer architecture and clarified key concepts. This journey has helped me deepen my understanding and address common misconceptions.
+---
 
 ## Learning Highlights
 
@@ -16,13 +18,13 @@ Reading a paper is one thing; truly understanding the details is another. To bri
 
 ### 2. **Q is F, Not G**
 
-- Highlights why the Query () is not the token we are predicting but the most recent token available.
+- Highlights why the Query (Q) is not the token we are predicting but the most recent token available.
 - This distinction is crucial for understanding how attention mechanisms compute alignment scores.
 - [Read more](CH2_QisFNotG.md)
 
 ### 3. **Does F Dominate G?**
 
-- Investigates whether the last token () in a sequence dominates the generation of the next token ().
+- Investigates whether the last token (F) in a sequence dominates the generation of the next token (G).
 - Analyzes how attention balances the influence of preceding tokens.
 - [Read more](CH3_DoesFDominateG.md)
 
@@ -38,19 +40,19 @@ Reading a paper is one thing; truly understanding the details is another. To bri
 - Explains why Add is preferred for maintaining dimensional consistency and computational efficiency.
 - [Read more](CH5_AddandConcat.md)
 
+### 6. **Log Story**
 
-### 6. *** Log Story ***
-
-- explain the logs.txt
+- Explains the significance of logs.txt and its role in debugging and understanding transformers.
 - [Read more](CH6_log_story.md)
 
+### 7. **Predict Autoregressively**
 
-### 7. *** Predict AutoRegressively ***
-
+- Discusses how transformers predict sequences step by step using autoregression.
 - [Read more](CH7_Prediction.md)
 
-### 8. *** Softmax usage ****
+### 8. **Softmax Usage**
 
+- Provides insights into the critical role of Softmax in attention mechanisms.
 - [Read more](CH8_SoftMax.md)
 
 ---
