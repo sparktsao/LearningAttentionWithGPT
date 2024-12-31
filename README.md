@@ -55,6 +55,19 @@ Through implementing a transformer and persistently asking detailed questions, t
 - Provides insights into the critical role of Softmax in attention mechanisms.
 - [Read more](CH8_SoftMax.md)
 
+
+### 9. **Next Token Generation**
+
+- Provides insights into the critical role of Softmax in attention mechanisms.
+- [Read more](CH9_TheNextTokenGeneration.md)
+
+
+### 10. **KV Cache save 50% compute? **
+
+- Provides insights into the critical role of Softmax in attention mechanisms.
+- [Read more](CH10_KVCache.md)
+
+
 ---
 
 ## Installation
